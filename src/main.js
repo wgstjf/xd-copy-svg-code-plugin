@@ -41,15 +41,16 @@ async function copySvgCode(selection) {
   // Read tmp file and generate SVG code
   const markup = await file.read()
   const svgCode = escapeHtml(markup)
+  // Copy to clipboard too!
+  clipboard.copyText(markup)  // Moved to before createDialog to fix issues on Windows
 
   // Show output dialog
   await createDialog({
     title: 'SVG Output',
-    template: () => `<textarea>${svgCode}</textarea>`
+    //template: () => `<textarea>${svgCode}</textarea>` // This doesn't work
+    template: () => `<input value="${svgCode}">` // This works
   })
 
-  // Copy to clipboard too!
-  clipboard.copyText(markup)
 }
 
 // Helper(s)

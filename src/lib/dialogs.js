@@ -185,6 +185,7 @@ async function createDialog({
     </h1>
     <hr />
     <div class="container">
+    <p>The code has been copied to your clipboard.</p>
         ${
     !render && (
       template ? template() : (
