@@ -43,7 +43,6 @@ async function copySvgCode(selection) {
   const svgCode = escapeHtml(markup)
   // Copy to clipboard too!
   clipboard.copyText(markup)  // Moved to before createDialog to fix issues on Windows
-
   // Show output dialog
   await createDialog({
     title: 'SVG Output',
